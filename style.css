@@ -1,12 +1,27 @@
 
 :root {
     --background-color: #f0f2f5;
+    --container-bg: #fff;
     --main-color: #333;
     --accent-color: #4CAF50;
     --white-color: #fff;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --font-family: 'Montserrat', sans-serif;
-    --bonus-color: #FFC107; /* Bonus number color */
+    --bonus-color: #FFC107;
+    --placeholder-bg: #eee;
+    --gradient-start: #6d327c;
+    --gradient-end: #36C486;
+}
+
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --container-bg: #2d2d2d;
+    --main-color: #f0f2f5;
+    --accent-color: #81C784;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --placeholder-bg: #444;
+    --gradient-start: #2c0e35;
+    --gradient-end: #1a5c40;
 }
 
 body {
@@ -18,17 +33,39 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
+    background-image: linear-gradient(to right top, var(--gradient-start), var(--gradient-end));
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
-    background-color: var(--white-color);
+    background-color: var(--container-bg);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px var(--shadow-color);
     text-align: center;
     max-width: 90%;
     width: 500px;
+    position: relative;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+#theme-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--main-color);
+    transition: transform 0.3s ease;
+}
+
+#theme-btn:hover {
+    transform: scale(1.1);
 }
 
 h1 {
@@ -59,7 +96,7 @@ h1 {
 }
 
 .number-placeholder {
-    background-color: #eee;
+    background-color: var(--placeholder-bg);
 }
 
 .number {
@@ -74,14 +111,14 @@ h1 {
 
 .bonus-number-container {
     display: flex;
-    flex-direction: column; /* 변경된 부분 */
-    align-items: center; /* 변경된 부분 */
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 2rem;
 }
 
 .bonus-title {
-    font-size: 1.2rem; /* 변경된 부분 */
-    margin-bottom: 0.5rem; /* 변경된 부분 */
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
     color: var(--main-color);
     font-weight: 600;
 }

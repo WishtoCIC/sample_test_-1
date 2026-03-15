@@ -3,6 +3,25 @@ const generatorBtn = document.getElementById('generator-btn');
 const numberPlaceholders = document.querySelectorAll('.lotto-numbers .number-placeholder');
 const bonusPlaceholder = document.getElementById('bonus-placeholder');
 const bonusCheckbox = document.getElementById('bonus-checkbox');
+const themeBtn = document.getElementById('theme-btn');
+
+// Theme Management
+const currentTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', currentTheme);
+updateThemeIcon(currentTheme);
+
+themeBtn.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    let newTheme = theme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+});
+
+function updateThemeIcon(theme) {
+    themeBtn.textContent = theme === 'light' ? '☀️' : '🌙';
+}
 
 generatorBtn.addEventListener('click', () => {
     // Reset styles
