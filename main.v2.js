@@ -1,7 +1,6 @@
 
 const generatorBtn = document.getElementById('generator-btn');
-const numberPlaceholders = document.querySelectorAll('.lotto-numbers .number-placeholder');
-const bonusPlaceholder = document.getElementById('bonus-placeholder');
+const resultsContainer = document.getElementById('lotto-results-container');
 const bonusCheckbox = document.getElementById('bonus-checkbox');
 const themeBtn = document.getElementById('theme-btn');
 
@@ -23,37 +22,51 @@ function updateThemeIcon(theme) {
     themeBtn.textContent = theme === 'light' ? '☀️' : '🌙';
 }
 
-generatorBtn.addEventListener('click', () => {
-    // Reset styles
-    [...numberPlaceholders, bonusPlaceholder].forEach(placeholder => {
-        placeholder.textContent = '';
-        placeholder.classList.remove('number');
-    });
-
+function generateLottoNumbers() {
     const numbers = new Set();
     while (numbers.size < 6) {
         numbers.add(Math.floor(Math.random() * 45) + 1);
     }
+    return Array.from(numbers).sort((a, b) => a - b);
+}
 
-    const sortedNumbers = Array.from(numbers).sort((a, b) => a - b);
+generatorBtn.addEventListener('click', () => {
+    // Clear previous results
+    resultsContainer.innerHTML = '';
 
-    sortedNumbers.forEach((number, index) => {
-        setTimeout(() => {
-            const placeholder = numberPlaceholders[index];
-            placeholder.textContent = number;
-            placeholder.classList.add('number');
-        }, index * 200); // Stagger the animation
-    });
+    for (let i = 0; i < 5; i++) {
+        const row = document.createElement('div');
+        row.className = 'lotto-row';
+        
+        const sortedNumbers = generateLottoNumbers();
+        
+        sortedNumbers.forEach((num, index) => {
+            const numEl = document.createElement('div');
+            numEl.className = 'number';
+            numEl.textContent = num;
+            numEl.style.animationDelay = `${(i * 100) + (index * 50)}ms`;
+            row.appendChild(numEl);
+        });
 
-    if (bonusCheckbox.checked) {
-        let bonusNumber;
-        do {
-            bonusNumber = Math.floor(Math.random() * 45) + 1;
-        } while (numbers.has(bonusNumber));
+        if (bonusCheckbox.checked) {
+            const numbersSet = new Set(sortedNumbers);
+            let bonusNumber;
+            do {
+                bonusNumber = Math.floor(Math.random() * 45) + 1;
+            } while (numbersSet.has(bonusNumber));
 
-        setTimeout(() => {
-            bonusPlaceholder.textContent = bonusNumber;
-            bonusPlaceholder.classList.add('number');
-        }, 6 * 200); // Stagger the animation
+            const bonusLabel = document.createElement('span');
+            bonusLabel.className = 'bonus-label';
+            bonusLabel.textContent = '+';
+            row.appendChild(bonusLabel);
+
+            const bonusEl = document.createElement('div');
+            bonusEl.className = 'number bonus-number';
+            bonusEl.textContent = bonusNumber;
+            bonusEl.style.animationDelay = `${(i * 100) + (6 * 50)}ms`;
+            row.appendChild(bonusEl);
+        }
+
+        resultsContainer.appendChild(row);
     }
 });

@@ -13,23 +13,16 @@
             <button id="theme-btn" title="테마 변경">☀️</button>
         </div>
         <h1>로또 번호 생성기</h1>
-        <div class="lotto-numbers">
-            <div class="number-placeholder"></div>
-            <div class="number-placeholder"></div>
-            <div class="number-placeholder"></div>
-            <div class="number-placeholder"></div>
-            <div class="number-placeholder"></div>
-            <div class="number-placeholder"></div>
+        
+        <div id="lotto-results-container">
+            <!-- 5개의 번호 세트가 여기에 생성됩니다 -->
         </div>
-        <div class="bonus-number-container">
-            <p class="bonus-title">보너스</p>
-            <div class="number-placeholder bonus-number-placeholder" id="bonus-placeholder"></div>
-        </div>
+
         <div class="options">
             <input type="checkbox" id="bonus-checkbox">
             <label for="bonus-checkbox">보너스 번호 포함</label>
         </div>
-        <button id="generator-btn">번호 생성</button>
+        <button id="generator-btn">5개 세트 생성</button>
     </div>
     <script src="main.v2.js"></script>
 </body>
