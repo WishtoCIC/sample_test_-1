@@ -157,3 +157,65 @@ h1 {
 .options {
     margin-bottom: 1.5rem;
 }
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--placeholder-bg);
+    margin: 2.5rem 0;
+}
+
+.contact-section {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.contact-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--main-color);
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--placeholder-bg);
+    background-color: var(--container-bg);
+    color: var(--main-color);
+    font-family: var(--font-family);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px var(--accent-color);
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--main-color);
+    color: var(--container-bg);
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}

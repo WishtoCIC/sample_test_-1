@@ -23,7 +23,23 @@
             <label for="bonus-checkbox">보너스 번호 포함</label>
         </div>
         <button id="generator-btn">5개 세트 생성</button>
+
+        <hr class="divider">
+
+        <section class="contact-section">
+            <h3>🤝 제휴 및 서비스 문의</h3>
+            <form action="https://formspree.io/f/your-endpoint" method="POST" id="contact-form">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="이메일 주소" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="문의 내용을 입력해 주세요." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">문의 보내기</button>
+            </form>
+        </section>
     </div>
     <script src="main.v2.js"></script>
 </body>
 </html>
+
