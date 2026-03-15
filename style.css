@@ -1,1 +1,108 @@
-/* Add styles here */
+
+:root {
+    --background-color: #f0f2f5;
+    --main-color: #333;
+    --accent-color: #4CAF50;
+    --white-color: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --font-family: 'Montserrat', sans-serif;
+    --bonus-color: #FFC107; /* Bonus number color */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--main-color);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
+}
+
+.container {
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    text-align: center;
+    max-width: 90%;
+    width: 500px;
+}
+
+h1 {
+    color: var(--main-color);
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.lotto-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.number-placeholder, .number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.number-placeholder {
+    background-color: #eee;
+}
+
+.number {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    transform: scale(1.1);
+}
+
+.bonus-number-placeholder.number {
+    background-color: var(--bonus-color);
+}
+
+.bonus-number-container {
+    display: flex;
+    flex-direction: column; /* 변경된 부분 */
+    align-items: center; /* 변경된 부분 */
+    margin-bottom: 2rem;
+}
+
+.bonus-title {
+    font-size: 1.2rem; /* 변경된 부분 */
+    margin-bottom: 0.5rem; /* 변경된 부분 */
+    color: var(--main-color);
+    font-weight: 600;
+}
+
+#generator-btn {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+#generator-btn:hover {
+    background-color: #45a049;
+}
+
+.options {
+    margin-bottom: 1.5rem;
+}
