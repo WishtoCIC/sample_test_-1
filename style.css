@@ -219,3 +219,8 @@ h1 {
 .submit-btn:hover {
     opacity: 0.9;
 }
+
+.comments-section {
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+}
